@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Game</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/webp" href="/static/icons/logo.webp">
+</head>
+<body>
+    <div class="header">
+        <img src="/static/icons/logo.webp" alt="Game Logo">
+    </div>
+
+    <div class="container">
+        <h2>Start or Join Session</h2>
+        
+        <img src="/static/images/start.jpg" alt="Start Image" style="width: 100%; max-width: 400px; display: block; margin: 20px auto;">
+        
+        <p class="small-text">Enter your name to start the game. If you already have a session ID, you can enter it to join an active session.</p>
+        
+        <form action="/submit_session" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required style="width: 100%; max-width: 200px; padding: 10px 15px; font-size: 1.2rem; display: block; margin: 10px auto;">
+            <input type="text" name="session_id" placeholder="ID to join active session (optional)" style="width: 100%; max-width: 400px; padding: 10px 15px; font-size: 1.2rem; display: block; margin: 10px auto;">
+            
+            <button type="submit" class="btn" style="display: block; margin: 20px auto;">Send</button>
+        </form>
+    </div>
+</body>
+</html>

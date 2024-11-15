@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/webp" href="/static/icons/logo.webp">
+</head>
+<body>
+    <div class="header">
+        <img src="/static/icons/logo.webp" alt="Game Logo">
+    </div>
+
+    <div class="container">
+        <h2>Result!</h2>
+        <img src="/static/images/result.jpg" alt="Result Image" class="result-image" style="width: 100%; max-width: 500px; display: block; margin: 20px auto;">
+        <p><strong>{{.Player2}}</strong> knows <strong>{{.Player1}}</strong> <strong>{{.Percentage}}%</strong>.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>{{.Player2}} Answer</th>
+                    <th>Correct Answer</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .ResultDetails}}
+                <tr>
+                    <td>{{.Question}}</td>
+                    <td>{{.Player2Answer}}</td>
+                    <td>{{.Player1Answer}}</td>
+                    <td>
+                        {{if .IsCorrect}}
+                            <input type="checkbox" checked style="color: green;">
+                        {{else}}
+                            <input type="checkbox" disabled style="color: red;">
+                        {{end}}
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+
+        <a href="/start" class="btn">Return to Start Page</a>
+    </div>
+</body>
+</html>

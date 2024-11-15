@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waiting for Your Partner</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/webp" href="/static/icons/logo.webp">
+    <script>
+        function checkSessionStatus(sessionID, playerID) {
+            fetch(`/status?session_id=${sessionID}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "in_progress") {
+                        window.location.href = `/game?session_id=${sessionID}&player_id=${playerID}`;
+                    } else if (data.status === "finished") {
+                        window.location.href = `/result?session_id=${sessionID}&player_id=${playerID}`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching session status:', error);
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const sessionID = "{{.SessionID}}";
+            const playerID = "{{.PlayerID}}";
+            setInterval(() => {
+                checkSessionStatus(sessionID, playerID);
+            }, 5000);
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <img src="/static/icons/logo.webp" alt="Game Logo">
+    </div>
+    
+    <div class="container">
+        <h2>Waiting for your partner</h2>
+        
+        <img src="/static/images/waiting.jpg" alt="Waiting Image" class="waiting-image" style="width: 100%; max-width: 500px; display: block; margin: 20px auto;">
+        
+        {{if .ShowSessionInfo}}
+            <p>Share this session ID with your partner to join the game.</p>
+            <p><strong>Session ID:</strong> {{.SessionID}}</p>
+        {{end}}
+    </div>
+</body>
+</html>

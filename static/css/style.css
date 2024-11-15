@@ -1,0 +1,88 @@
+/* static/css/style.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 20px; /* Margen general alrededor de la página */
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.header img {
+    height: 80px; /* Tamaño más grande para el icono */
+}
+
+.container {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 3.5rem; /* Tamaño más grande para el título */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px; /* Espacio adicional debajo del texto */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; /* Espacio adicional debajo de la imagen */
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 500px; /* Imagen más grande */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos mejorados para los campos de entrada */
+input[type="text"] {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo aumentado */
+    min-width: 600px; /* Ancho mínimo para asegurar que sea suficientemente largo */
+    padding: 25px 35px; /* Aumenta el tamaño del campo */
+    font-size: 1.7rem; /* Tamaño de fuente más grande */
+    margin-bottom: 20px; /* Espacio entre los campos */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ff3e6c;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px; /* Espacio adicional encima del botón */
+}
+
+.btn:hover {
+    background-color: #ff1e5b;
+}

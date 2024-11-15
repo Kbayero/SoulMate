@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Soulmates</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/webp" href="/static/icons/logo.webp">
+    <script>
+        function disableButton() {
+            var button = document.querySelector("button[type='submit']");
+            button.disabled = true; //
+            button.innerHTML = "Sending...";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <img src="/static/icons/logo.webp" alt="Game Logo">
+    </div>
+
+    <div class="container">
+        <h2>{{.Subtitle}}</h2>
+
+        <img src="/static/images/{{.Photo}}" alt="Question Photo" class="question-photo" style="width: 100%; max-width: 400px; display: block; margin: 20px auto;">
+        
+        <p><strong>Question: {{.CurrentQuestion}}:</strong> {{.Question}}</p>
+        
+        <form action="/game?session_id={{.SessionID}}&player_id={{.PlayerID}}" method="POST" onsubmit="disableButton()">
+            <input type="text" name="answer" placeholder="Answer" required>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </div>
+</body>
+</html>
